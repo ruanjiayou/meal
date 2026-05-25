@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import MealPlanner from './components/MealPlanner'
 import DishManager from './components/DishManager'
 import { CalendarDays, ChefHat } from 'lucide-react'
@@ -21,7 +21,7 @@ export default () => {
     loading: false,
   });
 
-  const init = async () => {
+  const init = useCallback(async () => {
     try {
       global.app.access_token = user.access_token;
       global.app.refresh_token = user.refresh_token;
@@ -32,7 +32,7 @@ export default () => {
     } catch (err) {
 
     }
-  }
+  }, [])
   useEffect(() => {
     if (!localState.booted && user.access_token) {
       localStore.booted = true
@@ -73,7 +73,6 @@ export default () => {
           </TabNavigation>
 
           <UserInfo onLogout={() => {
-            global.app.access_token = '';
             global.dateRecordsMap.clear()
           }} />
         </HeaderContent>

@@ -3,7 +3,7 @@ import { styled } from '@linaria/react';
 export const Wrap = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100dvh;
+  height: 100%;
   background-color: #f5f5f5;
 `
 export const AppHeader = styled.header`
@@ -16,18 +16,15 @@ export const AppHeader = styled.header`
   z-index: 100;
 
   @media (max-width: 768px) {
-    padding: 10px 0;
+    padding: 10px;
   }
 `
 export const HeaderContent = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
-  padding: 0 10px;
 
-  @media (max-width: 768px) {
-    padding: 0 10px;
-  }
+  padding-top: env(safe-area-inset-top);
 `
 export const AppMain = styled.main`
   flex: 1;
@@ -35,7 +32,7 @@ export const AppMain = styled.main`
   width: 100%;
   margin: 0 auto;
   overflow: hidden;
-  padding: 0 10px;
+  padding: 0 10px env(safe-area-inset-bottom);
 `
 export const Logo = styled.div`
   display: flex;
@@ -62,7 +59,7 @@ export const TabButton = styled.button`
   cursor: pointer;
   font-size: 18px;
   font-weight: 500;
-  color: wheat;
+  color: white;
   border-bottom: 3px solid transparent;
   /* transition: all 0.3s ease; */
   display: flex;

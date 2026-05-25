@@ -14,9 +14,13 @@ body {
   background-color: #f5f5f5;
 }
 
-html, body, #root {
-  height: 100%;
+html,
+body,
+#root {
+  height: 100dvh;
   width: 100%;
+  overscroll-behavior: none;
+  overflow: hidden;
 }
 
 code {
